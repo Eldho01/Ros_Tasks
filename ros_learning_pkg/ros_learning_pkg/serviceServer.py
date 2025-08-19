@@ -19,7 +19,7 @@ class AddTwoInts_server(Node):
     def callback_addition_of_TwoInts(self, request, response):
         
         response.sum = request.a + request.b
-        self.get_logger().info(f"sum of {request.a} + {request.b} = {response.sum}")
+        self.get_logger().info(f"sum of {request.a} and {request.b} = {response.sum}")
         return response
         
         

@@ -30,11 +30,19 @@ ament_target_dependencies(news_station rclcpp example_interfaces)
 add_executable(smart_phone src/smart_phone.cpp)
 ament_target_dependencies(smart_phone rclcpp example_interfaces)
 
+add_executable(add_twoInts src/serviceServer.cpp)
+ament_target_dependencies(add_twoInts rclcpp example_interfaces)
+
+add_executable(add_twoInts_client src/client.cpp)
+ament_target_dependencies(add_twoInts_client rclcpp example_interfaces)
+
 
 install(TARGETS
  first_node
  news_station
  smart_phone
+ add_twoInts
+ add_twoInts_client
   DESTINATION lib/${PROJECT_NAME}
 )
 

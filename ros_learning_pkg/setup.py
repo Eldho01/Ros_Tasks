@@ -23,7 +23,8 @@ setup(
             "first_node = ros_learning_pkg.first_node:main",
             "news_station = ros_learning_pkg.news_station:main",
             "smart_phone = ros_learning_pkg.smart_phone:main",
-            "add_twoInts = ros_learning_pkg.service:main",
+            "add_twoInts = ros_learning_pkg.serviceServer:main",
+            "add_twoInts_client = ros_learning_pkg.client:main",
         ],
     },  
 )

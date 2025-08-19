@@ -6,7 +6,7 @@ You’ll create 2 nodes from scratch. In the first one you’ll have 1 publisher
 
    2.  The number_counter node subscribes to the “/number” topic. It keeps a counter variable. Every time a new number is received, it’s added to the counter. The node also has a publisher on the “/number_count” topic. When the counter is updated, the publisher directly publishes the new value on the topic.
 
-    <pre>
+
     ```bash
     ros2 topic echo /number_count 
     ```
@@ -25,4 +25,4 @@ You’ll create 2 nodes from scratch. In the first one you’ll have 1 publisher
     data: 42
 
     ---
-    ```</pre>
+    ```
