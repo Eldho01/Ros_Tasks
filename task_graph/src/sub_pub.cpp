@@ -11,8 +11,8 @@ class NumberCounter: public rclcpp::Node{
                             std::bind(&NumberCounter::callback_new_num, this,
                                 std::placeholders::_1));
 
-        timer_ = this->create_wall_timer(std::chrono::seconds(1),
-                        std::bind(&NumberCounter::sub_pub_count, this));
+        // timer_ = this->create_wall_timer(std::chrono::seconds(1),
+        //                 std::bind(&NumberCounter::sub_pub_count, this));
 
         RCLCPP_INFO(this->get_logger(),"started Publisher and subscriber node ...");
 
@@ -21,6 +21,7 @@ class NumberCounter: public rclcpp::Node{
     void callback_new_num(const std_msgs::msg::Int64::SharedPtr msg){
         num_counter_++;
         RCLCPP_INFO(this->get_logger(),"%ld",msg->data);
+        sub_pub_count();
     }
 
     void sub_pub_count(){
@@ -28,7 +29,7 @@ class NumberCounter: public rclcpp::Node{
         msg.data = num_counter_;
         publisher_->publish(msg);
     }
-    rclcpp::TimerBase::SharedPtr timer_;
+    // rclcpp::TimerBase::SharedPtr timer_; 
     rclcpp::Subscription<std_msgs::msg::Int64>::SharedPtr subscriber_;
     rclcpp::Publisher<std_msgs::msg::Int64>::SharedPtr publisher_;
     int num_counter_;
