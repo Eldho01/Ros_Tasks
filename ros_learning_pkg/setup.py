@@ -25,6 +25,7 @@ setup(
             "smart_phone = ros_learning_pkg.smart_phone:main",
             "add_twoInts = ros_learning_pkg.serviceServer:main",
             "add_twoInts_client = ros_learning_pkg.client:main",
+            "hw_status_pub = ros_learning_pkg.hw_status_publisher:main"
         ],
     },  
 )

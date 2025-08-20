@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(task_graph)
+project(task_pkg)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
 
 # if(BUILD_TESTING)
 #   find_package(ament_lint_auto REQUIRED)
@@ -25,7 +26,7 @@ add_executable(first_pub src/first_publisher.cpp)
 ament_target_dependencies(first_pub rclcpp std_msgs)
 
 add_executable(sub_pub src/sub_pub.cpp)
-ament_target_dependencies(sub_pub rclcpp std_msgs)
+ament_target_dependencies(sub_pub rclcpp std_msgs std_srvs)
 
 install(TARGETS
 first_pub
