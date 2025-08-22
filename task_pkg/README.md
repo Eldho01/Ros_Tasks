@@ -1,3 +1,4 @@
+
 ## Activity - ROS2 Topics
 
 You’ll create 2 nodes from scratch. In the first one you’ll have 1 publisher, and in the second one, 1 publisher & 1 subscriber.

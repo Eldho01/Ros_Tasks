@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<robot name="a_robot">
+
+    <material name="gray">
+        <color rgba="0.5 0.5 0.5 1" />
+    </material>
+
+    <material name="blue">
+        <color rgba="0 0.3 0.6 1" />
+    </material>
+
+    <material name="green">
+        <color rgba="0 0.7 0.2 1" />
+    </material>
+
+    <link name="basefoot_link" />
+
+    <link name="base_link">
+
+        <visual>
+
+            <geometry>
+                <box size="0.4 0.6 0.2" />
+            </geometry>
+
+            <origin xyz="0 0 0.1" rpy=" 0 0 0" />
+
+            <material name="green" />
+
+        </visual>
+    </link>
+
+    <link name="body_link">
+
+        <visual>
+
+            <geometry>
+                <cylinder radius="0.1" length="0.2" />
+            </geometry>
+
+            <origin xyz="0 0 0.1" rpy="0 0 0" />
+
+            <material name="blue" />
+        </visual>
+
+    </link>
+
+    <link name="head_link">
+
+        <visual>
+
+            <geometry>
+                <sphere radius="0.05" />
+            </geometry>
+
+            <origin xyz="0 0 0.05" rpy="0 0 0" />
+
+        </visual>
+
+    </link>
+
+    <link name="right_wheel_link">
+
+        <visual>
+
+            <geometry>
+
+                <cylinder radius="0.1" length="0.05"/>
+
+            </geometry>
+            
+            <origin xyz="0 0 0" rpy="0 1.57 0 " />
+            <material name="gray" />
+
+        </visual>
+
+    </link>
+
+        <link name="left_wheel_link">
+
+        <visual>
+
+            <geometry>
+
+                <cylinder radius="0.1" length="0.05"/>
+
+            </geometry>
+            
+            <origin xyz="0 0 0" rpy="0 1.57 0 " />
+            <material name="gray" />
+
+        </visual>
+
+    </link>
+
+  
+
+    <link name="caster_wheel_link">
+
+        <visual>
+
+            <geometry>
+
+                <sphere radius="0.05" />
+
+            </geometry>
+            
+            <origin xyz="0 0 0" rpy="0 0 0 " />
+            <material name="gray" />
+
+        </visual>
+
+    </link>
+
+    <joint name="basefoot_base_joint" type ="fixed">
+
+        <parent link="basefoot_link"/>
+        <child  link="base_link"/>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/>
+
+    </joint>
+
+    <joint name="base_body_joint" type="fixed">
+
+        <parent link="base_link" />
+        <child  link="body_link" />
+        <origin xyz="0 0 0.2" rpy="0 0 0 " />
+
+    </joint>
+
+    <joint name="body_head_joint" type="revolute">
+
+        <parent link="body_link" />
+        <child link="head_link" />
+        <origin xyz="0 0 0.2" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.57" upper="+1.58" velocity="100" effort="100" />
+
+    </joint>
+
+    <joint name="base_right_wheel_joint" type="continuous">
+
+        <parent link="base_link" />
+        <child link="right_wheel_link"/>
+        <origin xyz="0.225 0.15 0" rpy="0 0 0 " />
+        <axis xyz="1 0 0 " />
+
+    </joint>
+
+        <joint name="base_left_wheel_joint" type="continuous">
+
+        <parent link="base_link" />
+        <child link="left_wheel_link"/>
+        <origin xyz="-0.225 0.15 0" rpy="0 0 0 " />
+        <axis xyz="1 0 0 " />
+
+    </joint>
+
+    <joint name="base_caster_wheel_joint" type="fixed">
+
+        <parent link="base_link" />
+        <child link="caster_wheel_link"/>
+        <origin xyz="0 -0.15 -0.05 " rpy="0 0 0"/>
+        <!-- <axis xyz="0 0 1"/> -->
+    </joint>
+
+</robot>
