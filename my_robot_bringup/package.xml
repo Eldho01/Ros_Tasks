@@ -12,6 +12,9 @@
   
   <exec_depend>ros_learning_cpp</exec_depend>
   <exec_depend>ros_learning_pkg</exec_depend>
+  <exec_depend>my_robot_description</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
 
 
   <test_depend>ament_lint_auto</test_depend>
